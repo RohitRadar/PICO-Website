@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/ProductPage.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=ABeeZee'>
+
+	<div class="col-lg-12 col-md-12 col-sd-3">
+		<div class="links">
+		<a class="topword" onclick="opennavprod()">Products</a>
+		<a style="font-size:30px;"> > </a>
+		<a href="{% url 'halleffect:halleffect' %}" class="topprod">{{appname.name}}</a>
+		<a style="font-size:30px;"> > </a>
+		<a href="#" class="topprod"> {{details.title}}</a>
+		</div>
+	</div>
+	<div class="picbox col-lg-12 col-md-12 col-sd-3">
+		<div class="col-lg-5 col-md-5 col-sd-3">
+			<img class="pic" src="{{details.thumb.url}}">
+		</div>
+		<div class="col-lg-5 col-md-5 col-sd-3">
+			<div class="info">
+				<h2>{{details.title}}</h2>
+				<h3>Short Description</h3>
+				<div>{{details.snippet1}}</div>
+				<div>{{details.snippet2}}</div>
+				<div>{{details.snippet3}}</div>
+			</div>
+			<div class="detailedhead">Detailed Description</div>
+		</div>
+	</div>
+	<div class="col-lg-12 col-md-12 col-sd-3">
+		<div class="col-lg-5 col-md-5">
+			<div class="related">
+				<h2> Related Products </h2>
+				{% for type in types %}
+				<div class="relatedprod">
+			   		<a href="#"><img src="{{ type.thumb.url }}" class="relatedpic"></a>
+       				<h2 class="relatedhead">
+    		   			{{ type.title }}
+     		   		</h2>
+       		    	<button  class="relatedbutton"><a href="{% url 'halleffect:product' slug=type.slug %}" class="relatedlink">See More</a></button>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		<iframe class="adobefile col-lg-7 col-md-7 col-sd-3" src="{{details.file.url}}" frameborder="0" type='application/pdf'></iframe>
+	</div>
+
+ 
+{% endblock %}

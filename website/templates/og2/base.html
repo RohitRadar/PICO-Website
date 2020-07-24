@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="{% static 'js/base.js' %}"></script>
+	<meta name= "viewport" content="initial-scale=1" width="device-width">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=ABeeZee'>
+	<title>PICO</title>
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'">
+</head>
+<body>
+	<div class="top col-lg-12 col-sd-3">
+		<a href="{% url 'home' %}"><img src="{% static 'images/pclogo.JPG' %}" class="logoimg col-lg-6">
+		</a>
+		<a href="{% url 'home' %}"><img src="{% static 'images/picophone.JPG' %}" class="logoimgphone col-sd-3">
+		</a>
+	</div>
+	<div id="myDropdown" class="dropdown-content">
+		  	<ul><li><a href="{% url 'Ultrasonic:ultrasonic' %}">Ultrasonic Interferometer</a></li></ul>
+		  	<ul><li><a href="{% url 'Decade_Resistance_Box:Decade_Resistance_Box' %}">Decade Resistance Box</a></li></ul>
+			<ul><li><a href="#">Decade Capacitance Box</a></li></ul>
+	  		<ul><li><a href="{% url 'halleffect:halleffect' %}">Hall Effect Sensors</a></li></ul>
+	</div>
+	<div class="navbuts col-lg-12 col-md-12 col-sd-3" id="myHeader">
+		<div class="navbut n1 col-lg-1 col-md-2">
+		<a class="navname" href="{% url 'home' %}">Home</a>
+		</div>
+		<div class="navbut col-lg-1 col-md-2 dropbtn" onclick="myFunction()">
+		<a class="navname" href="#">Products</a>
+		</div>
+		<div class="navbut col-lg-1 col-md-2"> 
+		<a class="navname" href="{% url 'Gallery' %}">Gallery</a>
+		</div>
+		<div class="navbut col-lg-1 col-md-2">
+		<a class="navname" href="{% url 'contact' %}">Contact</a>
+		</div>
+		<div class="search-container col-md-4">
+		    <form action="/action_page.php">
+		      <input type="text" placeholder="Search.." name="search">
+		      <button type="submit"><i class="fa fa-search"></i></button>
+		    </form>
+  		</div>
+	</div>
+	<div id="mySidenavprod" class="col-sd-3">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closenavprod()">&times;</a>
+	  <a href="{% url 'Ultrasonic:ultrasonic' %}">Ultrasonic</a>
+	  <a href="#">Decade Res</a>
+	  <a href="#">Decade Cap</a>
+	  <a href="#">Hall Effect</a>
+	</div>
+	<div id="myDropdownphone" class="dropdown-content-phone">
+		  	<a href="#">Home</a>
+		  	<a href="#" onclick="opennavprod()">Products</a>
+			<a href="#">Gallery</a>
+	  		<a href="#">Contact</a>
+	</div>
+	<div id="sidephone" class="col-sd-3">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closesearch()">&times;</a>
+	  <div class="search-contphone">
+	  	<form action="/action_page.php">
+	    	<input type="text" placeholder="Search.." name="search">
+        	<button type="submit"><i class="fa fa-search"></i></button>
+	    </form>
+  	  </div>
+	</div>
+	<div class="sidenavbutton">
+	<span class="dropbtnphone" style="font-size:30px;color:white;cursor:pointer" onclick="myFunctionphone()">
+		&#9776;</span>
+	<span style="font-size:30px;color:black;cursor:pointer" onclick="opensearch()">
+		<i class="fa fa-search search-phone"></i>
+		</span>
+	</div>
+	<div class="mainbody">
+	{% block content %}
+	{% endblock %}
+	<div class="col-lg-12 col-md-12 col-sd-3">
+		<div class="footer">
+			<section class="footermenu col-lg-2 col-md-2 col-sd-3" style="margin-left:10px">
+				  <span style="font-size:25px">Go To</span>
+		          <br><a href="index.html" style="text-decoration:none">Home</a>
+		          <br><a href="Products.html" style="text-decoration:none">Products</a>
+		          <br><a href="About.html" style="text-decoration:none">About</a>
+		          <br><a href="Contact.html" style="text-decoration:none">Contact</a>
+		    </section>
+			<section class="footermenu hours col-lg-3 col-md-3 col-sd-3">
+		          <span style="font-size:25px">Hours:</span>
+		          <br>Mon-Sat: 9:00am - 5:00pm
+		          <br>Sunday Closed
+		    </section>
+		    <section class="footermenu col-lg-3 col-md-3 col-sd-3">
+		          <span style="font-size:25px">Address:</span><br>
+		          <br>Module 7, Block II, SIDCO Electronic Complex
+				  <br>Industrial Estate, Guindy, Chennai - 600 032.
+				  <br>Phone : 93810 00390, 95000 70390
+        	</section>
+        	<div class="map">
+			<iframe class="footermap" src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.285253471996!2d80.20993061447525!3d13.017498117392424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52673f9135413d%3A0xc0ee688409295569!2sPhysics%20Instruments%20Co.!5e0!3m2!1sen!2sin!4v1591943653223!5m2!1sen!2sin" width="300" height="250" frameborder="0" allowfullscreen="true" aria-hidden="false" tabindex="0"></iframe>
+			</div>
+			<span class="visitmap">Visit Us</span>
+		</div>
+	</div>
+</body>
+</html>

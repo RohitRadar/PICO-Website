@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=ABeeZee'>
+<div class="prodtypes col-lg-12 col-md-12">
+		<img class="frontimg" src="{% static 'images/frontimgespin.JPG' %}">
+		<div class="text-block">
+		    <h4>Our Aim</h4>
+			<p>make affordable quality instruments in India for the development of Science and Technology</p>
+		    <p>to fulfil the dream of our founder Prof.T.Krishnamurthi, that Indians should  carry out research in our own soil and make India proud</p>
+			<p>ensured our customer is always given the best product</p>
+		</div>
+		<div class="featuredname">Featured Products</div>
+		<hr class="featuredline">
+		{% for homepage in homepages %}
+		<div class="featuredproducts">
+			<div class="col-lg-4 col-md-4 col-sd-3">
+				<div class="featured1">
+				    <a href="#"><img src="{{ homepage.thumb1.url }}" class="featuredpic"></a>
+       			    <h2 class="featuredhead">
+       			   		{{ homepage.title1 }}
+       			   	</h2>
+       			    <button class="featuredbutton">See More</button>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sd-3">
+				<div class="featured2">
+					<a href="#"><img src="{{ homepage.thumb2.url }}" class="featuredpic"></a>
+				    <a class="featuredcard">
+       			    	<h2 class="featuredhead">{{ homepage.title2 }}</h2>
+				        <button class="featuredbutton">See More</button>
+				    </a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sd-3">
+				<div class="featured3">
+					<a href="#"><img src="{{ homepage.thumb3.url }}" class="featuredpic"></a>
+				    <a class="featuredcard">
+       			    	<h2 class="featuredhead">{{ homepage.title3 }}</h2>
+				        <button class="featuredbutton">See More</button>
+				    </a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sd-3">
+				<div class="featured1">
+					<a href="#"><img src="{{ homepage.thumb4.url }}" class="featuredpic"></a>
+				    <a class="featuredcard">
+       			    	<h2 class="featuredhead">{{ homepage.title4 }}</h2>
+				        <button class="featuredbutton">See More</button>
+				    </a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sd-3">
+				<div class="featured2">
+					<a href="#"><img src="{{ homepage.thumb5.url }}" class="featuredpic"></a>
+				    <a class="featuredcard">
+       			    	<h2 class="featuredhead">{{ homepage.title5 }}</h2>
+				        <button class="featuredbutton">See More</button>
+				    </a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sd-3">
+				<div class="featured3">
+					<a href="#"><img src="{{ homepage.thumb6.url }}" class="featuredpic"></a>
+				    <a class="featuredcard">
+       			    	<h2 class="featuredhead">{{ homepage.title6 }}</h2>
+				        <button class="featuredbutton">See More</button>
+				    </a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sd-3">
+			<div class="founder">
+				<h1>Founder</h1>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sd-3">
+			<div class="AboutUs">
+				<h1>About Us</h1>
+			</div>
+		</div>
+		<div class="clients col-lg-12 col-md-12 col-sd-3">
+		</div>
+		{% endfor %}
+</div>
+{% endblock %}

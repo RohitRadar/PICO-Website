@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}">
+<script src="{% static 'js/gallery.js' %}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="{% static 'js/gallery.js' %}"></script>
+<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=ABeeZee'>
+	{% for photo in photos %}
+	<div class="box col-lg-3 col-md-3">
+		<div class="photobox">
+			<img id="myImg" src="{{photo.thumb.url}}" alt="{{photo.text}}">
+			<div class="text">
+				{{photo.text}}
+			</div>
+
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+			  <span class="close">&times;</span>
+			  <img class="modal-content" id="img01">
+			  <div id="caption"></div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+	<script src="{% static 'js/gallery.js' %}"></script>
+{% endblock %}

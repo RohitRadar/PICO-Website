@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Products.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=ABeeZee'>
+	<div class="col-lg-12 col-md-12 col-sd-3">
+		<div class="toprow col-lg-12 col-md-12">
+			<a class="topword" onclick="opennavprod()">Products</a>
+			<a style="font-size:30px;"> > </a>
+			<a href="#" class="topprod" >Ultrasonic</a>
+		</div>
+	</div>
+	<!-- PHONESTART-->
+	<div id="mySidenavprod" class="col-sd-3">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closenavprod()">&times;</a>
+	  <a href="{% url 'Ultrasonic:ultrasonic' %}">Ultrasonic</a>
+	  <a href="#">Decade Res</a>
+	  <a href="#">Decade Cap</a>
+	  <a href="#">Hall Effect</a>
+	</div>
+	<!-- PHONEEND-->
+	<div class="col-lg-12 col-md-12">
+	<div class="col-lg-3 col-md-3">
+		<div class="verticalprod-menu">
+		  	<a href="#" class="active">Product List</a>
+			<a href="#">Link 1</a>
+			<a href="#">Link 2</a>
+			<a href="#">Link 3</a>
+			<a href="#">Link 4</a>
+			<a href="#">Link 5</a>
+			<a href="#">Link 6</a>
+			<a href="#">Link 7</a>
+			<a href="#">Link 8</a>
+			<a href="#">Link 9</a>
+			<a href="#">Link 10</a>
+			<a href="#">Link 11</a>
+			<a href="#">Link 12</a>	
+		</div>
+		</div>
+		{% for type in types %}
+		<div class="col-lg-4 col-md-4 col-sd-3">
+			<div class="featured1">
+				   <a href="{% url 'Ultrasonic:product' slug=type.slug %}"><img src="{{ type.thumb.url }}" class="featuredpic"></a>
+       			<h2 class="featuredhead">
+    			   	{{ type.title }}
+       		   	</h2>
+       		    <button href="{% url 'Ultrasonic:product' slug=type.slug %}" class="featuredbutton">See More</button>
+			</div>
+		</div>
+		{% endfor %}
+	</div>	
+{% endblock %}
+		

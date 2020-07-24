@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/contacts.css' %}">
+<script src="{% static 'js/contacts.js' %}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=ABeeZee'>
+<h1>Contact Us</h1>
+<div class="col-lg-12 col-md-12 col-sd-3">
+<form class="page" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-actions submit">
+      <button type="submit">Send</button>
+    </div>
+</form>
+{% endblock %}
