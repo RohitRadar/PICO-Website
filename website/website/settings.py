@@ -25,7 +25,7 @@ SECRET_KEY = 'a(64@s#=*!!mlk#g^wm=8zltri=$_ns2!xtigu9bc-d3^#*4*d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rohitradar1.pythonanywhere.com']
 
 
 # Application definition
